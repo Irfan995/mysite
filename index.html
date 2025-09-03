@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fahim Ahmed Irfan — CV / Portfolio</title>
+  <meta name="description" content="Personal website and CV of Fahim Ahmed Irfan. Research, publications, projects, experience, education, and contact." />
+  <style>
+    :root {
+      --bg: #f9fafb;
+      --text: #1e293b;
+      --muted: #64748b;
+      --primary: #2563eb; /* Professional vibrant blue */
+      --panel: #ffffff;
+      --radius: 14px;
+      --shadow: 0 8px 20px rgba(0,0,0,.08);
+      --maxw: 920px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: var(--primary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header.nav {
+      background: var(--primary);
+      color: #fff;
+      padding: 14px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: var(--shadow);
+    }
+    .nav-inner a { color: #fff; font-weight: 600; margin-left: 18px; }
+    .nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--maxw);
+  margin: 0 auto;
+}
+
+nav.nav-links {
+  display: flex;
+  justify-content: center;  /* horizontally center */
+  align-items: center;      /* vertically center */
+  gap: 20px;
+  flex: 1;
+}
+
+
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 24px; }
+    .panel { background: var(--panel); border-radius: var(--radius); padding: 24px; margin-bottom: 28px; box-shadow: var(--shadow); }
+
+    h1, h2, h3 { margin-top: 0; }
+    h1.name { font-size: 2.2rem; color: var(--primary); }
+    h2 { font-size: 1.4rem; color: var(--primary); margin-bottom: 12px; }
+    .tag { color: var(--muted); font-size: 1.1rem; margin-bottom: 10px; }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+    .chip { background: var(--primary); color: #fff; padding: 4px 10px; border-radius: 999px; font-size: 0.85rem; }
+
+    ul.bullets { margin: 8px 0 0 20px; }
+
+    .btn { display: inline-block; margin-right: 10px; margin-top: 6px; background: var(--primary); color: #fff; padding: 8px 14px; border-radius: 8px; font-weight: 600; }
+    .btn:hover { background: #1e40af; text-decoration: none; }
+
+    footer { text-align: center; font-size: 0.9rem; color: var(--muted); margin: 30px 0; }
+  </style>
+</head>
+<body>
+  <header class="nav">
+  <div class="nav-inner">
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#pubs">Publications</a>
+      <a href="#education">Education</a>
+      <a href="#awards">Awards</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+
+  <main class="wrap">
+    <section class="panel" id="about" style="display:flex; align-items:flex-start; gap:20px; flex-wrap:wrap;">
+      <div style="flex:1 1 220px; max-width:200px;">
+        <img src="headshot.jpg" alt="Headshot of Fahim Ahmed Irfan" style="width:100%; aspect-ratio:1/1; border-radius:50%; object-fit:cover; box-shadow:0 4px 12px rgba(0,0,0,.15); border:4px solid var(--primary);"/>
+      </div>
+      <div style="flex:3 1 400px;">
+        <h1 class="name">Fahim Ahmed Irfan</h1>
+        <p class="tag">IoT • Smart Environments • Machine Learning • HCI</p>
+        <div class="chips">
+          <span class="chip">IoT</span>
+          <span class="chip">Smart Homes</span>
+          <span class="chip">Python</span>
+          <span class="chip">Machine Learning</span>
+          <span class="chip">Full Stack Developer</span>
+        </div>
+        <p>
+          Experienced full‑stack developer in Python and React, with proficiency in cross‑platform mobile app development using Flutter. Adept at agile methodologies, bridging research innovation with practical, industry‑ready solutions.
+        </p>
+        <p>
+          Graduate Researcher with expertise in IoT‑enabled intelligent environments, unsupervised learning, and autonomous systems. Proven track record in publishing peer‑reviewed research and advancing smart‑space technologies. 
+        </p>
+        <!-- Icon buttons -->
+        <a class="btn" href="/CV_Fahim_Ahmed_Irfan_Academic.pdf" target="_blank" title="Download CV">
+          <!-- CV Icon -->
+          <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' viewBox='0 0 24 24'>
+            <path d='M12 16l4-5h-3V4h-2v7H8z'/><path d='M20 18H4v-2H2v4h20v-4h-2z'/>
+          </svg>
+        </a>
+        <a class="btn" href="https://github.com/Irfan995" target="_blank" title="GitHub">
+          <!-- GitHub Icon -->
+          <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' viewBox='0 0 24 24'>
+            <path d='M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.1-1.1-1.4-1.1-1.4-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.4 1.1 3 .8.1-.7.3-1.1.6-1.4-2.6-.3-5.3-1.3-5.3-5.9 0-1.3.5-2.4 1.1-3.2-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.1.9-.2 1.8-.4 2.7-.4s1.8.1 2.7.4c2.3-1.5 3.3-1.1 3.3-1.1.6 1.6.2 2.8.1 3.1.7.8 1.1 1.9 1.1 3.2 0 4.6-2.7 5.6-5.3 5.9.4.3.7.9.7 1.8v2.7c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.6 18.3.5 12 .5z'/>
+          </svg>
+        </a>
+        <a class="btn" href="https://www.linkedin.com/in/irfan30/" target="_blank" title="LinkedIn">
+          <!-- LinkedIn Icon -->
+          <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' viewBox='0 0 24 24'>
+            <path d='M19 0h-14C2.2 0 0 2.2 0 5v14c0 2.8 2.2 5 5 5h14c2.8 0 5-2.2 5-5V5c0-2.8-2.2-5-5-5zM7.1 20.3H3.8V9h3.3v11.3zM5.5 7.6c-1 0-1.9-.8-1.9-1.9s.8-1.9 1.9-1.9c1 0 1.9.8 1.9 1.9 0 1-.9 1.9-1.9 1.9zM20.3 20.3h-3.3v-5.5c0-1.3 0-3-1.9-3s-2.1 1.5-2.1 2.9v5.6h-3.3V9h3.2v1.5h.1c.5-.9 1.7-1.9 3.5-1.9 3.8 0 4.5 2.5 4.5 5.8v5.9z'/>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <section class="panel" id="skills">
+      <h2>Technical Skills</h2>
+      <ul class="bullets">
+        <li>Languages: Python, JavaScript, Dart, Java, C, C++, SQL, HTML, CSS, Fortran</li>
+        <li>Frameworks & Tools: Django, Flask, React, Docker, Git, Apache JMeter, Jira</li>
+        <li>Expertise: AI, Full Stack Development, IoT, Microcontrollers, Image Processing, PCB Design</li>
+        <li>Other: Data Analysis, LaTeX, UI Design (Figma, Framer), Adobe Illustrator</li>
+      </ul>
+    </section>
+
+    <section class="panel" id="research">
+      <h2>Research Interests</h2>
+      <ul class="bullets">
+        <li>Cyber-physical Systems (CPS)</li>
+        <li>IoT Security</li>
+        <li>AI in Software Engineering</li>
+        <li>Natural Language Processing</li>
+      </ul>
+    </section>
+
+    <section class="panel" id="experience">
+      <h2>Professional Experience</h2>
+      <article>
+        <h3>Technical Specialist — NextGen DigiTech Ltd.</h3>
+        <p><em>Feb 2023 – Dec 2023</em></p>
+        <ul class="bullets">
+          <li>Worked on NextGen MyHealth Patients iOS App using Flutter.</li>
+          <li>Guided a team to develop and maintain a learning management system.</li>
+        </ul>
+      </article>
+      <article>
+        <h3>Software Developer — NextGen DigiTech Ltd.</h3>
+        <p><em>Sep 2021 – Jan 2023</em></p>
+        <ul class="bullets">
+          <li>Developed online doctor consultation platform using React and Django.</li>
+          <li>Built authentication systems, microservices, and notifications with Celery/Redis.</li>
+        </ul>
+      </article>
+      <article>
+        <h3>Junior Software Developer — NextGen DigiTech V.O.F.</h3>
+        <p><em>Jan 2020 – Aug 2021</em></p>
+        <ul class="bullets">
+          <li>Developed QA Tek LMS and HRM system modules (Java/Android).</li>
+          <li>Built desktop application for wind turbine design.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="panel" id="projects">
+      <h2>Projects</h2>
+      <ul class="bullets">
+        <li>Ship Category Detection using CNN — 96% accuracy.</li>
+        <li>Underwater Vehicle Detection using AI and ROV.</li>
+        <li>Industrial Automation Robot — Vision-based tracking & sorting.</li>
+        <li>Line Follower Robot — IR sensor navigation.</li>
+      </ul>
+    </section>
+
+    <section class="panel" id="pubs">
+      <h2>Publications</h2>
+      <ol>
+        <li><strong>F. A. Irfan</strong>, R. Iqbal, D. Eckstein, M. Strickland. <em>CoRe: A Comparative Study of Transformer Models for Context Recognition in Smart Classrooms</em>. IEEE COMPSAC 2025. <a href="https://ieeexplore.ieee.org/abstract/document/11126660">IEEE Xplore</a></li>
+        <li>M. A. Tanvir, <strong>F. A. Irfan</strong>, R. Iqbal. <em>SEAD: Sensor Event-Based Anomaly Detection for Smart Home Automation</em>. IEEE COMPSAC 2025. <a href="https://ieeexplore.ieee.org/abstract/document/11126728">IEEE Xplore</a></li>
+        <li><strong>F. A. Irfan</strong>, C. Behl, R. Iqbal. <em>Verbal Abuse Detection from Short Conversations</em>. IEEE CCNC 2025. <a href="https://ieeexplore.ieee.org/document/10976181">IEEE Xplore</a></li>
+        <li><strong>F. A. Irfan</strong>, R. Iqbal, A. Siddiqua. <em>SeReIn‑M: Sensor Relationship Inference in Multi‑Resident Smart Homes</em>. IEEE CCNC 2024. <a href="https://ieeexplore.ieee.org/document/10454867">IEEE Xplore</a></li>
+        <li>A. Siddiqua, S. Liu, R. Iqbal, <strong>F. A. Irfan</strong>, L. Ross, B. Zweerink. <em>TIM‑MARL: Information Sharing for Multi‑Agent Reinforcement Learning in Smart Environments</em>. IEEE CCNC 2024. <a href="https://ieeexplore.ieee.org/abstract/document/10454813">IEEE Xplore</a></li>
+        <li><strong>F. A. Irfan</strong>, M. Karim. <em>Detection of Underwater Ships Categorically Using CNN and Power Efficient ROV</em>. MARTEC 2022. <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4446259">SSRN</a></li>
+      </ol>
+      <h3>Thesis</h3>
+      <p><strong>Towards Automated Sensor Actuator Mapping for Dynamic Smart Spaces</strong>. Missouri State University, 2025. <a href="https://bearworks.missouristate.edu/theses/4089/">BearWorks</a></p>
+      <h3>Posters</h3>
+      <ul>
+        <li><em>An Unsupervised Learning Approach for Sensor‑Actuator Relations in Smart Homes</em>. EIDF 2025.</li>
+        <li><em>Sensor Actuator Relationship Inference in Smart Homes</em>. EIDF 2024.</li>
+      </ul>
+    </section>
+
+    <section class="panel" id="education">
+      <h2>Education</h2>
+      <ul class="bullets">
+        <li>M.Sc. in Computer Science — Missouri State University, Jul 2025</li>
+        <li>Graduate Certificate in Software Engineering — Missouri State University, Jul 2025</li>
+        <li>B.Sc. in Naval Architecture and Marine Engineering — BUET, Jun 2021</li>
+      </ul>
+    </section>
+
+    <section class="panel" id="awards">
+      <h2>Honors & Awards</h2>
+      <ul class="bullets">
+        <li>MuSyC Lab Founder’s Award for Excellence (2025)</li>
+        <li>Outstanding Poster Presentation — EIDF 2025</li>
+        <li>Nominated Outstanding Graduate Student — MSU 2025</li>
+        <li>16th place worldwide — European Rover Challenge 2019</li>
+        <li>2nd Runner-up — BUET EEE DAY Robo Wars 2017</li>
+      </ul>
+    </section>
+
+    <section class="panel" id="contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:fahimirfan70@gmail.com">fahimirfan70@gmail.com</a></p>
+      <p>Phone: +1 417 619 8332</p>
+      <p>GitHub: <a href="https://github.com/Irfan995">Irfan995</a> | LinkedIn: <a href="https://www.linkedin.com/in/irfan30/">irfan30</a></p>
+    </section>
+
+    <footer>
+      © <span id="yr"></span> Fahim Ahmed Irfan. Built with a single HTML file.
+    </footer>
+  </main>
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
