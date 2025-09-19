@@ -4,246 +4,350 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Fahim Ahmed Irfan — CV / Portfolio</title>
-  <link rel="icon" type="image/png" href="favicon.svg">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <meta name="description" content="Personal website and CV of Fahim Ahmed Irfan. Research, publications, projects, experience, education, and contact." />
+  <meta name="theme-color" content="#0f172a" />
   <style>
     :root {
-      --bg: #f9fafb;
-      --text: #1e293b;
-      --muted: #64748b;
-      --primary: #2563eb; /* Professional vibrant blue */
-      --panel: #ffffff;
+      --bg: #ffffff;
+      --bg-soft: #f7f8fa;
+      --text: #0f172a; /* slate-900 */
+      --muted: #475569; /* slate-600 */
+      --line: #e2e8f0;  /* slate-200 */
+      --primary: #2563eb; /* blue-600 */
+      --primary-ink: #1e3a8a; /* blue-900 */
       --radius: 14px;
-      --shadow: 0 8px 20px rgba(0,0,0,.08);
-      --maxw: 920px;
+      --shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+      --maxw: 1080px;
+      --col-sidebar: 280px;
     }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b1220;
+        --bg-soft: #0e1626;
+        --text: #e5eefb;
+        --muted: #93a4c3;
+        --line: #1f2a44;
+        --primary: #60a5fa;
+        --primary-ink: #c7dbff;
+        --shadow: 0 10px 30px rgba(0,0,0,.45);
+      }
+      img { filter: none; }
+    }
+
     * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
-      font-family: 'Inter', system-ui, sans-serif;
-      background: var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: linear-gradient(180deg, var(--bg) 0%, var(--bg) 70%, var(--bg-soft) 100%);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
+
     a { color: var(--primary); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
-    header.nav {
-      background: var(--primary);
-      color: #fff;
-      padding: 14px 24px;
+    /* Layout */
+    .wrap {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 24px clamp(16px, 3vw, 32px);
+      display: grid;
+      grid-template-columns: var(--col-sidebar) 1fr;
+      gap: 28px;
+    }
+
+    @media (max-width: 920px) {
+      .wrap { grid-template-columns: 1fr; }
+    }
+
+    /* Sidebar (inspired by minimal academic pages) */
+    .sidebar {
       position: sticky;
-      top: 0;
-      z-index: 10;
+      top: 16px;
+      align-self: start;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 22px;
       box-shadow: var(--shadow);
     }
-    .nav-inner a { color: #fff; font-weight: 600; margin-left: 18px; }
-    .nav-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: var(--maxw);
-  margin: 0 auto;
-}
 
-nav.nav-links {
-  display: flex;
-  justify-content: center;  /* horizontally center */
-  align-items: center;      /* vertically center */
-  gap: 20px;
-  flex: 1;
-}
+    .headshot {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--line);
+      display: block;
+      margin: 4px 0 12px 0;
+    }
 
+    .name { font-size: 1.65rem; margin: 0 0 6px 0; letter-spacing: -0.2px; }
+    .role { color: var(--muted); margin: 0 0 12px 0; }
 
-    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 24px; }
-    .panel { background: var(--panel); border-radius: var(--radius); padding: 24px; margin-bottom: 28px; box-shadow: var(--shadow); }
+    .quick-actions { display: flex; gap: 10px; flex-wrap: wrap; margin: 8px 0 16px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid var(--line);
+      border-radius: 10px; padding: 8px 12px; font-weight: 600;
+      color: var(--text); background: transparent;
+    }
+    .btn:hover { border-color: var(--primary); text-decoration: none; }
 
-    h1, h2, h3 { margin-top: 0; }
-    h1.name { font-size: 2.2rem; color: var(--primary); }
-    h2 { font-size: 1.4rem; color: var(--primary); margin-bottom: 12px; }
-    .tag { color: var(--muted); font-size: 1.1rem; margin-bottom: 10px; }
+    .icons { display: flex; gap: 10px; margin: 6px 0 2px; }
+    .icon-btn {
+      width: 38px; height: 38px; display: grid; place-items: center;
+      border: 1px solid var(--line); border-radius: 10px; background: transparent;
+    }
+    .icon-btn:hover { border-color: var(--primary); }
 
-    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
-    .chip { background: var(--primary); color: #fff; padding: 4px 10px; border-radius: 999px; font-size: 0.85rem; }
+    nav.side-nav { margin-top: 16px; }
+    nav.side-nav a {
+      display: block; padding: 8px 10px; border-radius: 8px; color: var(--text);
+    }
+    nav.side-nav a:hover, nav.side-nav a.active { background: var(--bg-soft); color: var(--primary-ink); text-decoration: none; }
+
+    /* Main content */
+    main { display: grid; gap: 18px; }
+
+    section { scroll-margin-top: 90px; }
+
+    .panel {
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: clamp(18px, 3vw, 26px);
+      box-shadow: var(--shadow);
+    }
+
+    h2 {
+      font-size: 1.25rem; letter-spacing: 0.2px; margin: 0 0 14px 0;
+      display: inline-flex; align-items: center; gap: 10px; position: relative;
+    }
+    h2::before {
+      content: ""; width: 6px; height: 18px; border-radius: 3px; background: var(--primary);
+      display: inline-block;
+    }
+
+    h3 { margin: 10px 0 6px; font-size: 1.05rem; }
+    .muted { color: var(--muted); }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 12px; }
+    .chip { background: var(--bg-soft); border: 1px solid var(--line); color: var(--text); padding: 4px 10px; border-radius: 999px; font-size: .86rem; }
 
     ul.bullets { margin: 8px 0 0 20px; }
+    ul.bullets li + li { margin-top: 6px; }
 
-    .btn { display: inline-block; margin-right: 10px; margin-top: 6px; background: var(--primary); color: #fff; padding: 8px 14px; border-radius: 8px; font-weight: 600; }
-    .btn:hover { background: #1e40af; text-decoration: none; }
+    /* Publications: hanging indent for crisp academic look */
+    ol.publist { list-style: decimal; padding-left: 1.25rem; }
+    ol.publist li { padding-left: .4rem; text-indent: 0; margin-bottom: 10px; }
 
-    footer { text-align: center; font-size: 0.9rem; color: var(--muted); margin: 30px 0; }
+    /* Footer */
+    footer { text-align: center; font-size: .9rem; color: var(--muted); padding: 24px; }
+
+    /* Print-friendly tweaks */
+    @media print {
+      .wrap { display: block; padding: 0; }
+      .sidebar { position: static; box-shadow: none; }
+      .panel { box-shadow: none; }
+      nav.side-nav { display: none; }
+      a[href^="http"]::after { content: " (" attr(href) ")"; font-size: .8em; color: #555; }
+    }
   </style>
 </head>
 <body>
-  <header class="nav">
-  <div class="nav-inner">
-    <nav class="nav-links">
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#pubs">Publications</a>
-      <a href="#education">Education</a>
-      <a href="#awards">Awards</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
-</header>
+  <div class="wrap">
+    <!-- Sidebar -->
+    <aside class="sidebar" aria-label="Sidebar with identity and navigation">
+      <img src="headshot.jpg" alt="Headshot of Fahim Ahmed Irfan" class="headshot" />
+      <h1 class="name">Fahim Ahmed Irfan</h1>
+      <p class="role">IoT • CPS • NLP • ML</p>
 
-
-  <main class="wrap">
-    <section class="panel" id="about" style="display:flex; align-items:flex-start; gap:20px; flex-wrap:wrap;">
-      <div style="flex:1 1 220px; max-width:200px;">
-        <img src="headshot.jpg" alt="Headshot of Fahim Ahmed Irfan" style="width:100%; aspect-ratio:1/1; border-radius:50%; object-fit:cover; box-shadow:0 4px 12px rgba(0,0,0,.15); border:4px solid var(--primary);"/>
+      <div class="quick-actions">
+        <a class="btn" href="/CV_Fahim_Ahmed_Irfan_Academic.pdf" target="_blank" title="Download CV" aria-label="Download CV">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span>CV</span>
+        </a>
       </div>
-      <div style="flex:3 1 400px;">
-        <h1 class="name">Fahim Ahmed Irfan</h1>
-        <p class="tag">IoT • Smart Environments • Machine Learning • HCI</p>
+
+      <div class="icons" aria-label="Social links">
+        <a class="icon-btn" href="https://github.com/Irfan995" target="_blank" title="GitHub" aria-label="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.38 7.86 10.9.58.1.79-.25.79-.56v-2c-3.19.7-3.86-1.5-3.86-1.5-.53-1.08-1.16-1.37-1.16-1.37-.95-.65.07-.64.07-.64 1.05.08 1.6 1.07 1.6 1.07.93 1.58 2.44 1.12 3.03.86.09-.69.36-1.12.65-1.38-2.55-.29-5.24-1.28-5.24-5.71 0-1.26.45-2.3 1.18-3.12-.12-.29-.51-1.47.11-3.07 0 0 .96-.31 3.15 1.19.91-.25 1.89-.38 2.86-.39.97.01 1.95.14 2.86.39 2.19-1.5 3.15-1.19 3.15-1.19.62 1.6.23 2.78.11 3.07.73.82 1.18 1.86 1.18 3.12 0 4.44-2.69 5.41-5.26 5.69.37.31.7.93.7 1.88v2.79c0 .31.21.67.8.56C20.21 21.38 23.5 17.08 23.5 12 23.5 5.73 18.27.5 12 .5Z"/></svg>
+        </a>
+        <a class="icon-btn" href="https://www.linkedin.com/in/irfan30/" target="_blank" title="LinkedIn" aria-label="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.2 0 0 2.2 0 5v14c0 2.8 2.2 5 5 5h14c2.8 0 5-2.2 5-5V5c0-2.8-2.2-5-5-5ZM7.1 20.3H3.8V9h3.3v11.3ZM5.5 7.6c-1 0-1.9-.8-1.9-1.9s.8-1.9 1.9-1.9c1 0 1.9.8 1.9 1.9 0 1-.9 1.9-1.9 1.9Zm14.8 12.7h-3.3v-5.5c0-1.3 0-3-1.9-3s-2.1 1.5-2.1 2.9v5.6h-3.3V9h3.2v1.5h.1c.5-.9 1.7-1.9 3.5-1.9 3.8 0 4.5 2.5 4.5 5.8v5.9Z"/></svg>
+        </a>
+      </div>
+
+      <nav class="side-nav" aria-label="Section navigation">
+        <a href="#about" class="active">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#research">Research</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#pubs">Publications</a>
+        <a href="#education">Education</a>
+        <a href="#awards">Awards</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main>
+      <section class="panel" id="about">
+        <h2>About</h2>
         <div class="chips">
-          <span class="chip">IoT</span>
-          <span class="chip">Smart Homes</span>
-          <span class="chip">Python</span>
+          <span class="chip">Internet of Things (IoT)</span>
+          <span class="chip">Cyber‑Physical Systems (CPS)</span>
+          <span class="chip">Natural Language Processing (NLP)</span>
           <span class="chip">Machine Learning</span>
-          <span class="chip">Full Stack Developer</span>
+          <span class="chip">IoT Security</span>
+          <span class="chip">Software Engineering</span>
         </div>
         <p>
-          Experienced full‑stack developer in Python and React, with proficiency in cross‑platform mobile app development using Flutter. Adept at agile methodologies, bridging research innovation with practical, industry‑ready solutions.
+          I obtained my Master's in Computer Science from Missouri State University in Summer 2025. My research focuses
+          on the Internet of Things (IoT), Cyber‑physical Systems (CPS), Natural Language Processing (NLP), Machine Learning,
+          IoT Security, and Software Engineering. I am passionate about developing smart and secure systems for human‑centric
+          environments using data‑driven methods.
         </p>
         <p>
-          Graduate Researcher with expertise in IoT‑enabled intelligent environments, unsupervised learning, and autonomous systems. Proven track record in publishing peer‑reviewed research and advancing smart‑space technologies. 
+          I earned my Bachelor's in Naval Architecture and Marine Engineering from Bangladesh University of Engineering and
+          Technology (BUET) in 2022. Alongside my research, I build modern web and data systems in Python and JavaScript.
         </p>
-        <!-- Icon buttons -->
-        <a class="btn" href="/CV_Fahim_Ahmed_Irfan_Academic.pdf" target="_blank" title="Download CV">
-          <!-- CV Icon -->
-          <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' viewBox='0 0 24 24'>
-            <path d='M12 16l4-5h-3V4h-2v7H8z'/><path d='M20 18H4v-2H2v4h20v-4h-2z'/>
-          </svg>
-        </a>
-        <a class="btn" href="https://github.com/Irfan995" target="_blank" title="GitHub">
-          <!-- GitHub Icon -->
-          <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' viewBox='0 0 24 24'>
-            <path d='M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.1-1.1-1.4-1.1-1.4-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.4 1.1 3 .8.1-.7.3-1.1.6-1.4-2.6-.3-5.3-1.3-5.3-5.9 0-1.3.5-2.4 1.1-3.2-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.1.9-.2 1.8-.4 2.7-.4s1.8.1 2.7.4c2.3-1.5 3.3-1.1 3.3-1.1.6 1.6.2 2.8.1 3.1.7.8 1.1 1.9 1.1 3.2 0 4.6-2.7 5.6-5.3 5.9.4.3.7.9.7 1.8v2.7c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.6 18.3.5 12 .5z'/>
-          </svg>
-        </a>
-        <a class="btn" href="https://www.linkedin.com/in/irfan30/" target="_blank" title="LinkedIn">
-          <!-- LinkedIn Icon -->
-          <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' viewBox='0 0 24 24'>
-            <path d='M19 0h-14C2.2 0 0 2.2 0 5v14c0 2.8 2.2 5 5 5h14c2.8 0 5-2.2 5-5V5c0-2.8-2.2-5-5-5zM7.1 20.3H3.8V9h3.3v11.3zM5.5 7.6c-1 0-1.9-.8-1.9-1.9s.8-1.9 1.9-1.9c1 0 1.9.8 1.9 1.9 0 1-.9 1.9-1.9 1.9zM20.3 20.3h-3.3v-5.5c0-1.3 0-3-1.9-3s-2.1 1.5-2.1 2.9v5.6h-3.3V9h3.2v1.5h.1c.5-.9 1.7-1.9 3.5-1.9 3.8 0 4.5 2.5 4.5 5.8v5.9z'/>
-          </svg>
-        </a>
-      </div>
-    </section>
+      </section>
 
-    <section class="panel" id="skills">
-      <h2>Technical Skills</h2>
-      <ul class="bullets">
-        <li>Languages: Python, JavaScript, Dart, Java, C, C++, SQL, HTML, CSS, Fortran</li>
-        <li>Frameworks & Tools: Django, Flask, React, Docker, Git, Apache JMeter, Jira</li>
-        <li>Expertise: AI, Full Stack Development, IoT, Microcontrollers, Image Processing, PCB Design</li>
-        <li>Other: Data Analysis, LaTeX, UI Design (Figma, Framer), Adobe Illustrator</li>
-      </ul>
-    </section>
-
-    <section class="panel" id="research">
-      <h2>Research Interests</h2>
-      <ul class="bullets">
-        <li>Cyber-physical Systems (CPS)</li>
-        <li>IoT Security</li>
-        <li>AI in Software Engineering</li>
-        <li>Natural Language Processing</li>
-      </ul>
-    </section>
-
-    <section class="panel" id="experience">
-      <h2>Professional Experience</h2>
-      <article>
-        <h3>Technical Specialist — NextGen DigiTech Ltd.</h3>
-        <p><em>Feb 2023 – Dec 2023</em></p>
+      <section class="panel" id="skills">
+        <h2>Technical Skills</h2>
         <ul class="bullets">
-          <li>Worked on NextGen MyHealth Patients iOS App using Flutter.</li>
-          <li>Guided a team to develop and maintain a learning management system.</li>
+          <li><strong>Languages:</strong> Python, JavaScript, Dart, Java, C, C++, SQL, HTML, CSS, Fortran</li>
+          <li><strong>Frameworks & Tools:</strong> Django, Flask, React, Docker, Git, Apache JMeter, Jira</li>
+          <li><strong>Expertise:</strong> AI, Full‑Stack Development, IoT, Microcontrollers, Image Processing, PCB Design</li>
+          <li><strong>Other:</strong> Data Analysis, LaTeX, UI Design (Figma, Framer), Adobe Illustrator</li>
         </ul>
-      </article>
-      <article>
-        <h3>Software Developer — NextGen DigiTech Ltd.</h3>
-        <p><em>Sep 2021 – Jan 2023</em></p>
+      </section>
+
+      <section class="panel" id="research">
+        <h2>Research Interests</h2>
         <ul class="bullets">
-          <li>Developed online doctor consultation platform using React and Django.</li>
-          <li>Built authentication systems, microservices, and notifications with Celery/Redis.</li>
+          <li>Cyber‑Physical Systems (CPS)</li>
+          <li>IoT Security</li>
+          <li>AI in Software Engineering</li>
+          <li>Natural Language Processing</li>
         </ul>
-      </article>
-      <article>
-        <h3>Junior Software Developer — NextGen DigiTech V.O.F.</h3>
-        <p><em>Jan 2020 – Aug 2021</em></p>
+      </section>
+
+      <section class="panel" id="experience">
+        <h2>Professional Experience</h2>
+        <article>
+          <h3>Technical Specialist — NextGen DigiTech Ltd. <span class="muted">· Feb 2023 – Dec 2023</span></h3>
+          <ul class="bullets">
+            <li>Built NextGen MyHealth Patients iOS app in Flutter; streamlined release/testing workflows.</li>
+            <li>Guided a team to develop and maintain a Learning Management System (LMS).</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Software Developer — NextGen DigiTech Ltd. <span class="muted">· Sep 2021 – Jan 2023</span></h3>
+          <ul class="bullets">
+            <li>Developed an online doctor consultation platform using React and Django.</li>
+            <li>Implemented authentication, microservices, and async notifications with Celery/Redis.</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Junior Software Developer — NextGen DigiTech V.O.F. <span class="muted">· Jan 2020 – Aug 2021</span></h3>
+          <ul class="bullets">
+            <li>Developed QA Tek LMS and HRM system modules (Java/Android).</li>
+            <li>Built a desktop application for wind turbine design.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="panel" id="projects">
+        <h2>Projects</h2>
         <ul class="bullets">
-          <li>Developed QA Tek LMS and HRM system modules (Java/Android).</li>
-          <li>Built desktop application for wind turbine design.</li>
+          <li>Ship Category Detection using CNN — 96% accuracy.</li>
+          <li>Underwater Vehicle Detection using AI and ROV.</li>
+          <li>Industrial Automation Robot — vision‑based tracking & sorting.</li>
+          <li>Line Follower Robot — IR sensor navigation.</li>
         </ul>
-      </article>
-    </section>
+      </section>
 
-    <section class="panel" id="projects">
-      <h2>Projects</h2>
-      <ul class="bullets">
-        <li>Ship Category Detection using CNN — 96% accuracy.</li>
-        <li>Underwater Vehicle Detection using AI and ROV.</li>
-        <li>Industrial Automation Robot — Vision-based tracking & sorting.</li>
-        <li>Line Follower Robot — IR sensor navigation.</li>
-      </ul>
-    </section>
+      <section class="panel" id="pubs">
+        <h2>Publications</h2>
+        <ol class="publist">
+          <li><strong>F. A. Irfan</strong>, R. Iqbal, D. Eckstein, M. Strickland. <em>CoRe: A Comparative Study of Transformer Models for Context Recognition in Smart Classrooms</em>. IEEE COMPSAC 2025. <a href="https://ieeexplore.ieee.org/abstract/document/11126660" target="_blank" rel="noopener">IEEE Xplore</a></li>
+          <li>M. A. Tanvir, <strong>F. A. Irfan</strong>, R. Iqbal. <em>SEAD: Sensor Event‑Based Anomaly Detection for Smart Home Automation</em>. IEEE COMPSAC 2025. <a href="https://ieeexplore.ieee.org/abstract/document/11126728" target="_blank" rel="noopener">IEEE Xplore</a></li>
+          <li><strong>F. A. Irfan</strong>, C. Behl, R. Iqbal. <em>Verbal Abuse Detection from Short Conversations</em>. IEEE CCNC 2025. <a href="https://ieeexplore.ieee.org/document/10976181" target="_blank" rel="noopener">IEEE Xplore</a></li>
+          <li><strong>F. A. Irfan</strong>, R. Iqbal, A. Siddiqua. <em>SeReIn‑M: Sensor Relationship Inference in Multi‑Resident Smart Homes</em>. IEEE CCNC 2024. <a href="https://ieeexplore.ieee.org/document/10454867" target="_blank" rel="noopener">IEEE Xplore</a></li>
+          <li>A. Siddiqua, S. Liu, R. Iqbal, <strong>F. A. Irfan</strong>, L. Ross, B. Zweerink. <em>TIM‑MARL: Information Sharing for Multi‑Agent Reinforcement Learning in Smart Environments</em>. IEEE CCNC 2024. <a href="https://ieeexplore.ieee.org/abstract/document/10454813" target="_blank" rel="noopener">IEEE Xplore</a></li>
+          <li><strong>F. A. Irfan</strong>, M. Karim. <em>Detection of Underwater Ships Categorically Using CNN and Power Efficient ROV</em>. MARTEC 2022. <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4446259" target="_blank" rel="noopener">SSRN</a></li>
+        </ol>
+        <h3>Thesis</h3>
+        <p><strong>Towards Automated Sensor Actuator Mapping for Dynamic Smart Spaces</strong>. Missouri State University, 2025. <a href="https://bearworks.missouristate.edu/theses/4089/" target="_blank" rel="noopener">BearWorks</a></p>
+        <h3>Posters</h3>
+        <ul class="bullets">
+          <li><em>An Unsupervised Learning Approach for Sensor‑Actuator Relations in Smart Homes</em>. EIDF 2025.</li>
+          <li><em>Sensor Actuator Relationship Inference in Smart Homes</em>. EIDF 2024.</li>
+        </ul>
+      </section>
 
-    <section class="panel" id="pubs">
-      <h2>Publications</h2>
-      <ol>
-        <li><strong>F. A. Irfan</strong>, R. Iqbal, D. Eckstein, M. Strickland. <em>CoRe: A Comparative Study of Transformer Models for Context Recognition in Smart Classrooms</em>. IEEE COMPSAC 2025. <a href="https://ieeexplore.ieee.org/abstract/document/11126660">IEEE Xplore</a></li>
-        <li>M. A. Tanvir, <strong>F. A. Irfan</strong>, R. Iqbal. <em>SEAD: Sensor Event-Based Anomaly Detection for Smart Home Automation</em>. IEEE COMPSAC 2025. <a href="https://ieeexplore.ieee.org/abstract/document/11126728">IEEE Xplore</a></li>
-        <li><strong>F. A. Irfan</strong>, C. Behl, R. Iqbal. <em>Verbal Abuse Detection from Short Conversations</em>. IEEE CCNC 2025. <a href="https://ieeexplore.ieee.org/document/10976181">IEEE Xplore</a></li>
-        <li><strong>F. A. Irfan</strong>, R. Iqbal, A. Siddiqua. <em>SeReIn‑M: Sensor Relationship Inference in Multi‑Resident Smart Homes</em>. IEEE CCNC 2024. <a href="https://ieeexplore.ieee.org/document/10454867">IEEE Xplore</a></li>
-        <li>A. Siddiqua, S. Liu, R. Iqbal, <strong>F. A. Irfan</strong>, L. Ross, B. Zweerink. <em>TIM‑MARL: Information Sharing for Multi‑Agent Reinforcement Learning in Smart Environments</em>. IEEE CCNC 2024. <a href="https://ieeexplore.ieee.org/abstract/document/10454813">IEEE Xplore</a></li>
-        <li><strong>F. A. Irfan</strong>, M. Karim. <em>Detection of Underwater Ships Categorically Using CNN and Power Efficient ROV</em>. MARTEC 2022. <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4446259">SSRN</a></li>
-      </ol>
-      <h3>Thesis</h3>
-      <p><strong>Towards Automated Sensor Actuator Mapping for Dynamic Smart Spaces</strong>. Missouri State University, 2025. <a href="https://bearworks.missouristate.edu/theses/4089/">BearWorks</a></p>
-      <h3>Posters</h3>
-      <ul>
-        <li><em>An Unsupervised Learning Approach for Sensor‑Actuator Relations in Smart Homes</em>. EIDF 2025.</li>
-        <li><em>Sensor Actuator Relationship Inference in Smart Homes</em>. EIDF 2024.</li>
-      </ul>
-    </section>
+      <section class="panel" id="education">
+        <h2>Education</h2>
+        <ul class="bullets">
+          <li>M.Sc. in Computer Science — Missouri State University, Jul 2025</li>
+          <li>Graduate Certificate in Software Engineering — Missouri State University, Jul 2025</li>
+          <li>B.Sc. in Naval Architecture and Marine Engineering — BUET, Jun 2021</li>
+        </ul>
+      </section>
 
-    <section class="panel" id="education">
-      <h2>Education</h2>
-      <ul class="bullets">
-        <li>M.Sc. in Computer Science — Missouri State University, Jul 2025</li>
-        <li>Graduate Certificate in Software Engineering — Missouri State University, Jul 2025</li>
-        <li>B.Sc. in Naval Architecture and Marine Engineering — BUET, Jun 2021</li>
-      </ul>
-    </section>
+      <section class="panel" id="awards">
+        <h2>Honors & Awards</h2>
+        <ul class="bullets">
+          <li>MuSyC Lab Founder’s Award for Excellence (2025)</li>
+          <li>Outstanding Poster Presentation — EIDF 2025</li>
+          <li>Nominated Outstanding Graduate Student — MSU 2025</li>
+          <li>16th place worldwide — European Rover Challenge 2019</li>
+          <li>2nd Runner‑up — BUET EEE DAY Robo Wars 2017</li>
+        </ul>
+      </section>
 
-    <section class="panel" id="awards">
-      <h2>Honors & Awards</h2>
-      <ul class="bullets">
-        <li>MuSyC Lab Founder’s Award for Excellence (2025)</li>
-        <li>Outstanding Poster Presentation — EIDF 2025</li>
-        <li>Nominated Outstanding Graduate Student — MSU 2025</li>
-        <li>16th place worldwide — European Rover Challenge 2019</li>
-        <li>2nd Runner-up — BUET EEE DAY Robo Wars 2017</li>
-      </ul>
-    </section>
+      <section class="panel" id="contact">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:fahimirfan70@gmail.com">fahimirfan70@gmail.com</a></p>
+        <p>Phone: +1 417 619 8332</p>
+        <p>GitHub: <a href="https://github.com/Irfan995" target="_blank" rel="noopener">Irfan995</a> · LinkedIn: <a href="https://www.linkedin.com/in/irfan30/" target="_blank" rel="noopener">irfan30</a></p>
+      </section>
 
-    <section class="panel" id="contact">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:fahimirfan70@gmail.com">fahimirfan70@gmail.com</a></p>
-      <p>Phone: +1 417 619 8332</p>
-      <p>GitHub: <a href="https://github.com/Irfan995">Irfan995</a> | LinkedIn: <a href="https://www.linkedin.com/in/irfan30/">irfan30</a></p>
-    </section>
+      <footer>
+        © <span id="yr"></span> Fahim Ahmed Irfan — Built with a single HTML file.
+      </footer>
+    </main>
+  </div>
 
-    <footer>
-      © <span id="yr"></span> Fahim Ahmed Irfan. Built with a single HTML file.
-    </footer>
-  </main>
   <script>
+    // Current year
     document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // Highlight active section in side nav on scroll
+    const links = Array.from(document.querySelectorAll('.side-nav a'));
+    const sections = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+
+    const activate = (id) => {
+      links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) activate(entry.target.id);
+      });
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0.01 });
+
+    sections.forEach(sec => observer.observe(sec));
   </script>
 </body>
 </html>
